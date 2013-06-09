@@ -142,7 +142,7 @@ class Tika implements TikaInterface
             if ($this->logger && $this->logging) {
                 $this->logger->info(sprintf('Tika extract content: %s', $doc->getPath()));
             }
-            passthru(sprintf("$command %s", $doc->getPath()));
+            passthru(sprintf("$command \"%s\"", $doc->getPath()));
             $output = ob_get_clean();
             $doc->setContent($output);
         }
